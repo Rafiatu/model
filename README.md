@@ -19,7 +19,7 @@ resp = requests.post("https://rafi-predictions.herokuapp.com/predict",
                                                   2.960e+02, 1.530e+01, 3.969e+02, 4.980e+00]]}))
 print(resp.text)
 ```
-The API can also be tested using [Postman](ttps://www.postman.com) or [Swagger](https://swagger.io)
+The API can also be tested using [Postman](https://www.postman.com) or [Swagger](https://swagger.io)
 
 ## License
 
