@@ -4,7 +4,7 @@ import pickle
 from .process_input import __process_input
 
 
-SAVED_MODEL_PATH = "classifier.pkl"
+SAVED_MODEL_PATH = ".classifier.pkl"
 classifier = pickle.load(open(SAVED_MODEL_PATH, "rb"))
 
 
