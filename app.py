@@ -32,7 +32,7 @@ def predict() -> str:
         input_params = __process_input(request.data)
         predictions = classifier.predict(input_params)
 
-        return json.dumps({"predicted_class": predictions.tolist()}), 200
+        return json.dumps({"predicted_price": predictions.tolist()}), 200
     except (KeyError, json.JSONDecodeError, AssertionError):
         return json.dumps({"error": "CHECK INPUT"}), 400
     except Exception:
