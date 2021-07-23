@@ -1,10 +1,10 @@
 from flask import Flask, request
 import json
 import pickle
-from .process_input import __process_input
+from process_input import __process_input
 
 
-SAVED_MODEL_PATH = "src/classifier.pkl"
+SAVED_MODEL_PATH = "classifier.pkl"
 classifier = pickle.load(open(SAVED_MODEL_PATH, "rb"))
 
 
@@ -37,3 +37,7 @@ def predict() -> str:
         return json.dumps({"error": "CHECK INPUT"}), 400
     except Exception:
         return json.dumps({"error": "PREDICTION FAILED"}), 500
+    
+
+if __name__ == "__main__":
+    app.run()
