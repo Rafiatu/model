@@ -35,5 +35,5 @@ def predict() -> str:
         return json.dumps({"predicted_class": predictions.tolist()}), 200
     except (KeyError, json.JSONDecodeError, AssertionError):
         return json.dumps({"error": "CHECK INPUT"}), 400
-    # except Exception:
-    #     return json.dumps({"error": "PREDICTION FAILED"}), 500
+    except Exception:
+        return json.dumps({"error": "PREDICTION FAILED"}), 500
