@@ -1,7 +1,7 @@
 from flask import Flask, request
 import json
 import pickle
-from process_input import __process_input
+from .process_input import __process_input
 
 
 SAVED_MODEL_PATH = "classifier.pkl"
