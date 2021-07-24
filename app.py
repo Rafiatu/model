@@ -1,7 +1,7 @@
 from flask import Flask, request
 import json
 import pickle
-from process_input import __process_input
+from process_input import process_input
 
 
 SAVED_MODEL_PATH = "classifier.pkl"
@@ -29,11 +29,13 @@ def predict() -> str:
     :return: predicted class for the request
     """
     try:
-        input_params = __process_input(request.data)
+        input_params = process_input(request.data)
         predictions = classifier.predict(input_params)
-
         return json.dumps({"predicted_price": predictions.tolist()}), 200
     except (KeyError, json.JSONDecodeError, AssertionError):
         return json.dumps({"error": "CHECK INPUT"}), 400
     except Exception:
         return json.dumps({"error": "PREDICTION FAILED"}), 500
+
+if __name__ == '__main__':
+    app.run(debug=True)
